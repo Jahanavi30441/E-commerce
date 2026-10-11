@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - SREE VASTHRA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <img src="images/logo.png" alt="Sree Vasthra">
+    </div>
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+    </div>
+    <div class="icons">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-regular fa-user"></i>
+    </div>
+</nav>
+<section class="products">
+    <h2>All Products</h2>
+    <div id="productGrid" class="product-grid"></div>
+</section>
+<footer class="footer">
+<p>© 2026 Sree Vasthra. All Rights Reserved.</p>
+</footer>
+<script src="js/products.js"></script>
+<script src="js/script.js"></script>
+<script>
+    const productGrid = document.getElementById("productGrid");
+    if (productGrid && typeof products !== "undefined") {
+        products.forEach(function(product) {
+            productGrid.innerHTML += `
+                <div class="product-card">
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+                    <h3>${product.name}</h3>
+                    <p>₹${product.price}</p>
+                    <i class="fa-regular fa-heart wishlist"></i>
+                    <button
+                        class="cart-btn"
+                        data-id="${product.id}">
+                        Add to Cart
+                    </button>
+                </div>
+            `;
+        });
+    }
+</script>
+<div id="toast"></div>
+<a href="https://wa.me/9392860223"
+   class="whatsapp"
+   target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+</body>
+</html>
